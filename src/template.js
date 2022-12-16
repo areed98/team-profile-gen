@@ -3,16 +3,16 @@ const createProfile = (employees) => {
     //create manager profile
     const createManagerCard = (manager) => {
         return `
-            <div class="card employee manager">
-                <div class="cardHeader text-center">
+            <div class="card employee">
+                <div class="cardHeader text-center manager">
                     <h3 class="cardTitle">${manager.getName()}</h2>
-                    <h4 class="cardTitle">${manager.getRole()}</h4>
+                    <h4 class="cardTitle">Title: ${manager.getRole()}</h4>
                 </div>
                 <div class="cardBody">
-                    <ul class="list-group>
-                        <li class="list-group-item>ID: ${manager.getId()}</li>
-                        <li class="list-group-item>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                        <li class="list-group-item>Office Number: <a href="tel:${manager.officeNumber()}"${manager.officeNumber()}</a></li>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${manager.getId()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}" target="${manager.getEmail()}">${manager.getEmail()}</a></li>
+                        <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
                     </ul>
                 </div>
             </div>
@@ -21,16 +21,16 @@ const createProfile = (employees) => {
     //create engineer card
     const createEngineerCard = (engineer) => {
         return `
-            <div class="card employee engineer">
-                <div class="cardHeader text-center">
-                    <h3 class="cardTitle">${engineer.getName()}</h2>
-                    <h4 class="cardTitle">${engineer.getRole()}</h4>
+            <div class="card employee">
+                <div class="cardHeader text-center engineer">
+                    <h3 class="cardTitle">${engineer.getName()}</h3>
+                    <h4 class="cardTitle">Title: ${engineer.getRole()}</h4>
                 </div>
                 <div class="cardBody">
-                    <ul class="list-group>
-                        <li class="list-group-item>ID: ${engineer.getId()}</li>
-                        <li class="list-group-item>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                        <li class="list-group-item>Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${engineer.getId()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}" target="${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                        <li class="list-group-item">Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,16 +39,16 @@ const createProfile = (employees) => {
     //create intern card
     const createInternCard = (intern) => {
         return `
-            <div class="card employee intern">
-                <div class="cardHeader text-center">
-                    <h3 class="cardTitle">${intern.getName()}</h2>
-                    <h4 class="cardTitle">${intern.getRole()}</h4>
+            <div class="card employee">
+                <div class="cardHeader text-center intern">
+                    <h3 class="cardTitle">${intern.getName()}</h3>
+                    <h4 class="cardTitle">Title: ${intern.getRole()}</h4>
                 </div>
                 <div class="cardBody">
-                    <ul class="list-group>
-                        <li class="list-group-item>ID: ${intern.getId()}</li>
-                        <li class="list-group-item>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                        <li class="list-group-item>School: ${intern.getSchool()}</li>
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: ${intern.getId()}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}" target="${intern.getEmail()}">${intern.getEmail()}</a></li>
+                        <li class="list-group-item">School: ${intern.getSchool()}</li>
                     </ul>
                 </div>
             </div>
@@ -65,14 +65,14 @@ const createProfile = (employees) => {
     // push engineer to htmlpage
     htmlPage.push(
         employees
-            .filter((employee) => employee.getrole() === "Engineer")
+            .filter((employee) => employee.getRole() === "Engineer")
             .map((engineer) => createEngineerCard(engineer))
             .join("")
     );
     //push intern to htmlpage
     htmlPage.push(
         employees
-            .filter((employee) => employee.getrole() === "Intern")
+            .filter((employee) => employee.getRole() === "Intern")
             .map((intern) => createInternCard(intern))
             .join("")
     );
@@ -104,7 +104,7 @@ module.exports = (employees) => {
         </header>
         <main>
             <div class="container">
-                <div class="row justify-content-center" id="employeeCards">
+                <div class="justify-content-center" id="employeeCards">
                     <!-- Employee Cards go here -->
                     ${createProfile(employees)}
                 </div>

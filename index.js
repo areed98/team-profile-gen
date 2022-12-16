@@ -21,7 +21,7 @@ const createManager = () => {
     -----------------------------
     `);
     return inquirer
-    .createPromptModule([
+    .prompt([
         {
             type: "input",
             name: "name",
@@ -94,7 +94,7 @@ const createEmployee = () => {
     `);
 
     return inquirer
-        .createPromptModule([
+        .prompt([
             {
                 type: "list",
                 name: "role",
