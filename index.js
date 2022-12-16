@@ -85,6 +85,7 @@ const createManager = () => {
     });
 };
 
+//employee array
 const createEmployee = () => {
     console.log(`
     --------------------------------
@@ -193,3 +194,27 @@ const createEmployee = () => {
             }
         });
 };
+
+// write file
+const writeFile = (data) => {
+    fs.writeFile("./dist/index.html", data, (err) => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Employees set Correctly.");
+        }
+    });
+};
+
+createManager()
+    .then(createEmployee)
+    .then((employeeArrary) => {
+        return template(employeeArrary);
+    })
+    .then((pages) => {
+        return writeFile(pages);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
