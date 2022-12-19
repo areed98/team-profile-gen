@@ -1,0 +1,57 @@
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightblue;
+    text-decoration: none;
+}
+
+header {
+    background-color: rgb(187, 90, 90);
+    color: white;
+    height: 15%;   
+    margin-bottom: 40px;
+}
+
+#employeeCards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 1%;
+    max-width: 280px;
+    width: 100%;
+    display: flex;
+    background-color: lightgray;
+    box-shadow: 2px 2px 2px darkgray;
+}
+
+.cardHeader {
+    background-color: rgb(41, 109, 197);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: white;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4%;
+}
+
+.manager {
+    background-color: rgb(12, 110, 110);
+}
+
+.engineer {
+    background-color: rgb(138, 50, 50);
+}
+
+.intern {
+    background-color: rgb(12, 100, 4);
+}
